@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "ngx-taiui": ["libs/ngx-taiui/src/index.ts"],
+      "ngx-taiui/button": ["libs/ngx-taiui/button/src/index.ts"],
       "ngx-taiui/header": ["libs/ngx-taiui/header/src/index.ts"]
     }
   },
