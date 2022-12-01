@@ -5,6 +5,30 @@
   "sourceRoot": "libs/ngx-taiui/src",
   "prefix": "tui",
   "targets": {
+    "build-lib": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/libs/ngx-taiui"],
+      "configurations": {
+        "production": {
+          "commands": [
+            "nx run ngx-taiui:build:production",
+            "tailwindcss -c libs/ngx-taiui/tailwind.config.js -i ./libs/ngx-taiui/src/lib/ngx-taiui.scss -o ./dist/libs/ngx-taiui/ngx-taiui.scss -m"
+          ],
+          "parallel": false
+        },
+        "development": {
+          "commands": [
+            "if exist \"dist/libs/ngx-taiui\" rmdir /s /q \"dist/libs/ngx-taiui\"",
+            "if exist \"node_modules/ngx-taiui/\" rmdir /s /q \"node_modules/ngx-taiui\"",
+            "nx run ngx-taiui:build:development",
+            "tailwindcss -c libs/ngx-taiui/tailwind.config.js -i ./libs/ngx-taiui/src/lib/ngx-taiui.scss -o ./dist/libs/ngx-taiui/ngx-taiui.scss -m",
+            "Xcopy \"dist/libs/ngx-taiui\" \"node_modules/ngx-taiui/\" /f /e"
+          ],
+          "parallel": false
+        }
+      },
+      "defaultConfiguration": "production"
+    },
     "build": {
       "executor": "@nrwl/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
@@ -37,7 +61,9 @@
           "libs/ngx-taiui/**/*.ts",
           "libs/ngx-taiui/**/*.html",
           "libs/ngx-taiui/header/**/*.ts",
-          "libs/ngx-taiui/header/**/*.html"
+          "libs/ngx-taiui/header/**/*.html",
+          "libs/ngx-taiui/button/**/*.ts",
+          "libs/ngx-taiui/button/**/*.html"
         ]
       }
     }
