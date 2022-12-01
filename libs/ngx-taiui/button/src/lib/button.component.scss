@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  .tui-btn{
+    @apply rounded py-2 px-4 text-center text-base border-transparent cursor-pointer ring-1;
+  }
+
+  .tui-btn-sm{
+    @apply rounded py-0.5 px-2 text-center text-base border-transparent cursor-pointer ring-1;
+  }
+  .tui-btn-sm {
+    @apply text-sm font-normal !important;
+  }
+
+  .tui-btn-block{
+    @apply tui-btn block w-full;
+  }
+
+  .tui-btn,
+  .tui-btn-sm,
+  .tui-btn-block{
+    &:disabled {
+      @apply cursor-not-allowed opacity-50 pointer-events-none;
+    }
+
+    /** Button primary **/
+    &.tui-btn-primary {
+      @apply bg-blue-600 ring-blue-600 text-white font-bold hover:bg-blue-700 hover:ring-blue-700;
+    }
+    &.tui-btn-primary-outline{
+      @apply bg-transparent text-blue-700 ring-blue-700 font-semibold hover:text-white hover:bg-blue-700;
+    }
+
+    /** Button success **/
+    &.tui-btn-success {
+      @apply bg-green-600 ring-green-600 text-white font-bold hover:bg-green-700 hover:ring-green-700;
+    }
+    &.tui-btn-success-outline{
+      @apply bg-transparent text-green-700 ring-green-700 font-semibold hover:text-white hover:bg-green-700;
+    }
+
+    /** Button alert **/
+    &.tui-btn-alert {
+      @apply bg-yellow-500 ring-yellow-500 text-white font-bold hover:bg-yellow-600 hover:ring-yellow-600;
+    }
+    &.tui-btn-alert-outline{
+      @apply bg-transparent text-yellow-600 ring-yellow-600 font-semibold hover:text-white hover:bg-yellow-600;
+    }
+
+    /** Button danger **/
+    &.tui-btn-danger {
+      @apply bg-red-600 ring-red-600 text-white font-bold hover:bg-red-700 hover:ring-red-700;
+    }
+    &.tui-btn-danger-outline{
+      @apply bg-transparent text-red-700 ring-red-700 font-semibold hover:text-white hover:bg-red-700;
+    }
+  }
+}
