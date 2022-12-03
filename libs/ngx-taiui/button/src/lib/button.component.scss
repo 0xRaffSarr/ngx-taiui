@@ -30,8 +30,13 @@
     &.tui-btn-primary {
       @apply bg-blue-600 ring-blue-600 text-white font-bold hover:bg-blue-700 hover:ring-blue-700;
     }
-    &.tui-btn-primary-outline{
+    &.tui-btn-primary-outline {
       @apply bg-transparent text-blue-700 ring-blue-700 font-semibold hover:text-white hover:bg-blue-700;
+    }
+
+    &.tui-btn-primary.checked,
+    &.tui-btn-primary-outline.checked{
+      @apply bg-blue-800 text-white;
     }
 
     /** Button success **/
