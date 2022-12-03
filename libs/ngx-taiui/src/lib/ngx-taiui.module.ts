@@ -1,14 +1,19 @@
-import { NgModule } from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderModule } from 'ngx-taiui/header';
+import { ButtonModule } from 'ngx-taiui/button';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    HeaderModule
-  ],
-  declarations: [
-
-  ],
+    imports: [
+      CommonModule,
+      ButtonModule.forRoot()
+    ],
+    declarations: [ ],
+    exports: [
+      ButtonModule
+    ]
 })
-export class NgxTaiuiModule {}
+export class NgxTaiuiModule {
+  static forRoot(): ModuleWithProviders<NgxTaiuiModule> {
+    return { ngModule: NgxTaiuiModule, providers: [] };
+  }
+}
