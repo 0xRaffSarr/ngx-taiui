@@ -1,12 +1,12 @@
 import {
-  AfterContentInit, AfterViewInit,
   Directive,
   forwardRef,
   HostBinding,
   HostListener,
   Input,
   OnInit,
-  Provider
+  Provider,
+  ChangeDetectorRef, Output, EventEmitter
 } from '@angular/core';
 
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -32,16 +32,22 @@ export class ButtonCheckDirective implements ControlValueAccessor, OnInit {
   @Input() disabled!: boolean | string | undefined;
 
   @HostBinding('class.checked') checked = false;
+  @Output() change = new EventEmitter();
 
   protected btnValue?: btnAcceptedValue;
 
-  protected _onChange = Function.prototype;
-  protected _onTouched = Function.prototype;
+  protected onChange = Function.prototype;
+  protected onTouched = Function.prototype;
+
+  constructor(
+    private ref: ChangeDetectorRef
+  ) {}
 
   @HostListener('click')
   onClick(): void {
     this.toggle(this.btnValue !== this.btnCheckedValue);
-    this._onChange(this.btnValue);
+    this.onChange(this.btnValue);
+    this.ref.detectChanges();
   }
 
   ngOnInit() {
@@ -49,15 +55,16 @@ export class ButtonCheckDirective implements ControlValueAccessor, OnInit {
   }
 
   registerOnChange(fn: () => void): void {
-    this._onChange = fn;
+    this.onChange = fn;
   }
 
   registerOnTouched(fn: () => void): void {
-    this._onTouched = fn;
+    this.onTouched = fn;
   }
 
   setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+    if(!isDisabled) this.disabled = undefined;
+    else this.disabled = isDisabled;
   }
 
   writeValue(value: boolean | string | null): void {
@@ -67,5 +74,6 @@ export class ButtonCheckDirective implements ControlValueAccessor, OnInit {
   private toggle(state: boolean) {
     this.checked = state;
     this.btnValue = state ? this.btnCheckedValue : this.btnUncheckedValue;
+    this.change.emit(this.btnValue);
   }
 }
