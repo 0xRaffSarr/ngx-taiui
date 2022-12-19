@@ -24,7 +24,8 @@
             "prefix": "tui",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "@angular-eslint/no-output-native": "off"
       }
     },
     {
