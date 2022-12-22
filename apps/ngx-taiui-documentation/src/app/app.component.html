@@ -1,2 +1,107 @@
-<tui-header></tui-header>
-<ngx-taiui-nx-welcome></ngx-taiui-nx-welcome>
+<div style="width: 50%">
+  <div style="width: 100%; display: flex; justify-content: center; gap: 0.25rem; margin-top: 1rem">
+    <button class="tui-btn tui-btn-primary mx-1">
+      Salva
+    </button>
+    <button class="tui-btn tui-btn-success mx-1">
+      Salva
+    </button>
+    <button class="tui-btn tui-btn-alert mx-1">
+      Salva
+    </button>
+    <button class="tui-btn tui-btn-danger mx-1">
+      Salva
+    </button>
+  </div>
+
+  <div style="width: 100%; display: flex; justify-content: center; gap: 0.25rem; margin-top: 1rem">
+    <button disabled class="tui-btn tui-btn-primary mx-1">
+      Salva
+    </button>
+    <button disabled class="tui-btn tui-btn-success mx-1">
+      Salva
+    </button>
+    <button disabled class="tui-btn tui-btn-alert mx-1">
+      Salva
+    </button>
+    <button disabled class="tui-btn tui-btn-danger mx-1">
+      Salva
+    </button>
+  </div>
+
+  <div style="width: 100%; display: flex; justify-content: center; gap: 0.25rem; margin-top: 1rem">
+    <button class="tui-btn tui-btn-primary-outline mx-1">
+      Salva
+    </button>
+    <button class="tui-btn tui-btn-success-outline mx-1">
+      Salva
+    </button>
+    <button class="tui-btn tui-btn-alert-outline mx-1">
+      Salva
+    </button>
+    <button class="tui-btn tui-btn-danger-outline mx-1">
+      Salva
+    </button>
+  </div>
+
+  <div style="width: 100%; display: flex; justify-content: center; gap: 0.25rem; margin-top: 1rem; flex-wrap: wrap">
+    <button class="tui-btn-block tui-btn-primary mx-1">
+      Salva
+    </button>
+    <button class="tui-btn-block tui-btn-success mx-1">
+      Salva
+    </button>
+    <button class="tui-btn-block tui-btn-alert mx-1">
+      Salva
+    </button>
+    <button class="tui-btn-block tui-btn-danger mx-1">
+      Salva
+    </button>
+  </div>
+
+  <div style="width: 100%; display: flex; justify-content: center; gap: 0.25rem; margin-top: 1rem">
+    <button tuiBtnCheck class="tui-btn-sm tui-btn-primary mx-1">
+      Salva
+    </button>
+    <button class="tui-btn-sm tui-btn-success mx-1">
+      Salva
+    </button>
+    <button class="tui-btn-sm tui-btn-alert mx-1">
+      Salva
+    </button>
+    <button class="tui-btn-sm tui-btn-danger mx-1">
+      Salva
+    </button>
+  </div>
+
+  <div style="width: 100%; display: flex; justify-content: center; gap: 0.25rem; margin-top: 1rem">
+    <button tuiBtnCheck [btnCheckedValue]="1" [btnUncheckedValue]="0"
+            (change)="printValue($event)" disabled="disabled" class="tui-btn-sm tui-btn-primary mx-1">
+      Salva
+    </button>
+    <button disabled class="tui-btn-sm tui-btn-success mx-1">
+      Salva
+    </button>
+    <button disabled class="tui-btn-sm tui-btn-alert mx-1">
+      Salva
+    </button>
+    <button disabled class="tui-btn-sm tui-btn-danger mx-1">
+      Salva
+    </button>
+  </div>
+
+  <div style="width: 100%; display: flex; justify-content: center; gap: 0.25rem; margin-top: 1rem">
+    <button  class="tui-btn-sm tui-btn-primary-outline mx-1">
+      Salva
+    </button>
+    <button class="tui-btn-sm tui-btn-success-outline mx-1">
+      Salva
+    </button>
+    <button class="tui-btn-sm tui-btn-alert-outline mx-1">
+      Salva
+    </button>
+    <button class="tui-btn-sm tui-btn-danger-outline mx-1">
+      Salva
+    </button>
+  </div>
+</div>

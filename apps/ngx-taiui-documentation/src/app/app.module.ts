@@ -4,14 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 
-import { HeaderModule } from "ngx-taiui/header";
+import { NgxTaiuiModule } from 'ngx-taiui';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
-  imports: [
-    BrowserModule,
-    HeaderModule
-  ],
+    imports: [
+        BrowserModule,
+        NgxTaiuiModule.forRoot(),
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })

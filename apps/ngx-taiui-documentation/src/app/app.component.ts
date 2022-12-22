@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngx-taiui-documentation';
+
+  printValue(event: any) {
+    console.log(event);
+  }
 }
