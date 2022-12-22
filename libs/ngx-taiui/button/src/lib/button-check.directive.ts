@@ -48,6 +48,7 @@ export class ButtonCheckDirective implements ControlValueAccessor, OnInit {
     this.toggle(this.btnValue !== this.btnCheckedValue);
     this.onChange(this.btnValue);
     this.ref.detectChanges();
+    this.change.emit(this.btnValue);
   }
 
   ngOnInit() {
@@ -74,6 +75,5 @@ export class ButtonCheckDirective implements ControlValueAccessor, OnInit {
   private toggle(state: boolean) {
     this.checked = state;
     this.btnValue = state ? this.btnCheckedValue : this.btnUncheckedValue;
-    this.change.emit(this.btnValue);
   }
 }
