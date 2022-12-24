@@ -13,7 +13,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "ngxTaiui",
+            "prefix": "tui",
             "style": "camelCase"
           }
         ],
@@ -21,17 +21,17 @@
           "error",
           {
             "type": "element",
-            "prefix": "ngx-taiui",
+            "prefix": "tui",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "@angular-eslint/no-output-native": "off"
       }
     },
     {
       "files": ["*.html"],
       "extends": ["plugin:@nrwl/nx/angular-template"],
-      "rules": {
-      }
+      "rules": {}
     }
   ]
 }
