@@ -1,9 +1,9 @@
 const { exec } = require('node:child_process');
 const fs = require('fs').promises;
-const fsCostants = require('fs').constants; 
+const fsCostants = require('fs').constants;
 
 const outputDir = './dist/libs/ngx-taiui';
-const nodeMules = './node_modules/ngx-taiui/';
+const nodeModules = './node_modules/ngx-taiui/';
 const platform = process.platform;
 
 console.log('Build on %s platform...', platform);
@@ -20,10 +20,10 @@ async function run() {
     }
 
     try {
-        if(!await fs.access(nodeMules, fsCostants.F_OK) && (await fs.stat(nodeMules)).isDirectory()) {
+        if(!await fs.access(nodeModules, fsCostants.F_OK) && (await fs.stat(nodeModules)).isDirectory()) {
             console.log('Delete older node_modules files...');
-            await fs.rm(nodeMules, {recursive: true});
-        }    
+            await fs.rm(nodeModules, {recursive: true});
+        }
     }
     catch(error) {}
 
@@ -44,7 +44,7 @@ async function run() {
                 return;
             }
 
-            await fs.cp(outputDir, nodeMules, {recursive: true});
+            await fs.cp(outputDir, nodeModules, {recursive: true});
             console.log('Tailwind css builded!');
         })
     })
