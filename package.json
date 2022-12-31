@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build-dev": "nx build-lib ngx-taiui --configuration=development",
+    "build": "node ./script/build.js",
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js",
     "start": "nx serve",
-    "build": "nx build-lib ngx-taiui",
+    "build-lib": "nx build-lib ngx-taiui",
     "test": "nx test"
   },
   "private": true,

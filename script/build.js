@@ -6,10 +6,22 @@ const outputDir = './dist/libs/ngx-taiui';
 const nodeModules = './node_modules/ngx-taiui/';
 const platform = process.platform;
 
-console.log('Build on %s platform...', platform);
+let compileType = 'dev';
 
+function loadParameter() {
+    //check parameter
+    if(process.argv.length > 2) {
+        //check production mode build
+        if(process.argv.includes('prod')) compileType = 'production';
+    }
+}
 
 async function run() {
+
+    loadParameter();
+
+    console.log('Building in %s mode...', compileType);
+
     try {
         if(!await fs.access(outputDir, fsCostants.F_OK) && (await fs.stat(outputDir)).isDirectory()) {
             console.log('Delete older output files...');
@@ -44,7 +56,7 @@ async function run() {
                 return;
             }
 
-            await fs.cp(outputDir, nodeModules, {recursive: true});
+            if(compileType === 'dev') await fs.cp(outputDir, nodeModules, {recursive: true});
             console.log('Tailwind css builded!');
         })
     })
